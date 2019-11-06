@@ -12,7 +12,25 @@
 
 
 function putZerosAtEndOfArray(array) {
-    // Add code
+    let originalArray = [...array]
+    let answerArray = []
+    let arrayOfZeros = []
+    let spliced;
+
+    for (let [i, number] of originalArray.entries()) {
+      if (number === 0) {
+        spliced = originalArray.splice(i, 1)
+        arrayOfZeros.push(spliced[0])
+      }
+    }
+   answerArray = [...originalArray, ...arrayOfZeros]
+   return answerArray
+
 }
 
+console.log(putZerosAtEndOfArray([9,3,0,5,6,1,9,1,1231,0]))
 
+
+// loop first array to get the 0
+// when you find a 0, remove it from array and put it in another array
+// merge both arrays
